@@ -1,0 +1,13 @@
+/_build
+/deps
+/test*
+/priv
+*.dll
+erl_crash.dump
+*.ez
+*.o
+*.so
+bundlex.sh
+bundlex.bat
+*.swo
+*.swp
