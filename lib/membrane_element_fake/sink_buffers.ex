@@ -8,11 +8,11 @@ defmodule Membrane.Element.Fake.Sink.Buffers do
     {:ok, nil}
   end
 
-  def handle_prepare(_) do
-    {{:ok, demand: 1}, nil}
+  def handle_prepare(_, _) do
+    {{:ok, demand: {:sink, 1}, nil}
   end
 
   def handle_write1(:sink, _, _, _) do
-    {{:ok, demand: 1}, nil}
+    {{:ok, demand: {:sink, 1}}, nil}
   end
 end

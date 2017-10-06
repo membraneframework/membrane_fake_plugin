@@ -8,11 +8,11 @@ defmodule Membrane.Element.Fake.Sink.Bytes do
     {:ok, nil}
   end
 
-  def handle_prepare(_) do
-    {{:ok, demand: 65535}, nil}
+  def handle_prepare(_, _) do
+    {{:ok, demand: {:sink, 65535}}, nil}
   end
 
   def handle_write1(:sink, %Membrane.Buffer{payload: payload}, _, _) do
-    {{:ok, demand: byte_size(payload)}, nil}
+    {{:ok, demand: {:sink, byte_size(payload)}}, nil}
   end
 end
