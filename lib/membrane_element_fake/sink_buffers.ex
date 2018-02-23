@@ -4,14 +4,14 @@ defmodule Membrane.Element.Fake.Sink.Buffers do
     :sink => {:always, {:pull, demand_in: :buffers}, :any}
   }
 
+
+  @impl
   def handle_init(_) do
     {:ok, nil}
   end
 
-  def handle_prepare(_, _) do
-    {{:ok, demand: {:sink, 1}}, nil}
-  end
 
+  @impl
   def handle_write1(:sink, _, _, _) do
     {{:ok, demand: {:sink, 1}}, nil}
   end

@@ -4,14 +4,14 @@ defmodule Membrane.Element.Fake.Sink.Bytes do
     :sink => {:always, {:pull, demand_in: :bytes}, :any}
   }
 
+
+  @impl
   def handle_init(_) do
     {:ok, nil}
   end
 
-  def handle_prepare(_, _) do
-    {{:ok, demand: {:sink, 65535}}, nil}
-  end
 
+  @impl
   def handle_write1(:sink, %Membrane.Buffer{payload: payload}, _, _) do
     {{:ok, demand: {:sink, byte_size(payload)}}, nil}
   end
