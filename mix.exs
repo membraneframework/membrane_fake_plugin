@@ -30,7 +30,7 @@ defmodule Membrane.Element.Fake.Mixfile do
 
   defp deps do
     [
-      {:membrane_core, git: "git@github.com:membraneframework/membrane-core.git", branch: "feature/pull"},
+      {:membrane_core, git: "git@github.com:membraneframework/membrane-core.git"},
     ]
   end
 end
