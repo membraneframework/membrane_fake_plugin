@@ -35,18 +35,4 @@ defmodule Fake.Pipeline do
     {{:ok, %Spec{children: children, links: links}}, %{}}
   end
 end
-
-defmodule Fake.App do
-  use Application
-  alias Membrane.Pipeline
-
-  def start(_, _) do
-    {:ok, pid} = Pipeline.start_link(Fake.Pipeline, nil, [])
-    Pipeline.play(pid)
-
-    children = []
-    opts = [strategy: :one_for_one, name: __MODULE__]
-    Supervisor.start_link(children, opts)
-  end
-end
 ```

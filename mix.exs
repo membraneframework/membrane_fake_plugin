@@ -19,9 +19,7 @@ defmodule Membrane.Element.Fake.Mixfile do
 
   def application do
     [
-      applications: [
-        :membrane_core
-      ],
+      extra_applications: [],
       mod: {Membrane.Element.Fake, []}
     ]
   end
