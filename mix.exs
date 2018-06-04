@@ -5,13 +5,14 @@ defmodule Membrane.Element.Fake.Mixfile do
     [
       app: :membrane_element_fake,
       compilers: Mix.compilers(),
-      version: "0.0.1",
+      version: "0.1.0",
       elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env()),
       description: "Membrane Multimedia Framework (Fake Element)",
       package: package(),
       name: "Membrane Element: Fake",
-      source_url: "https://github.com/membraneframework/membrane-element-fake",
+      source_url: link(),
+      homepage_url: "https://membraneframework.org",
       deps: deps()
     ]
   end
@@ -23,18 +24,24 @@ defmodule Membrane.Element.Fake.Mixfile do
     ]
   end
 
+  defp link do
+    "https://github.com/membraneframework/membrane-element-fake"
+  end
+
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
   defp package do
     [
       maintainers: ["Membrane Team"],
-      licenses: ["Apache 2.0"]
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => link()}
     ]
   end
 
   defp deps do
     [
+      {:ex_doc, "~> 0.18", only: :dev, runtime: false},
       {:membrane_core, git: "git@github.com:membraneframework/membrane-core.git"}
     ]
   end
