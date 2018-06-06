@@ -12,7 +12,7 @@ defmodule Membrane.Element.Fake.Mixfile do
       package: package(),
       name: "Membrane Element: Fake",
       source_url: link(),
-      homepage_url: "https://membraneframework.org",
+      docs: docs(),
       deps: deps()
     ]
   end
@@ -31,18 +31,28 @@ defmodule Membrane.Element.Fake.Mixfile do
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 
+  defp docs do
+    [
+      main: "readme",
+      extras: ["README.md"]
+    ]
+  end
+
   defp package do
     [
       maintainers: ["Membrane Team"],
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => link()}
+      links: %{
+        "GitHub" => link(),
+        "Membrane Framework Homepage" => "https://membraneframework.org"
+      }
     ]
   end
 
   defp deps do
     [
       {:ex_doc, "~> 0.18", only: :dev, runtime: false},
-      {:membrane_core, git: "git@github.com:membraneframework/membrane-core.git"}
+      {:membrane_core, "~> 0.1"}
     ]
   end
 end

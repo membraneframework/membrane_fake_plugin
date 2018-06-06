@@ -6,12 +6,14 @@ They are particularly useful for testing or when making a filter-oriented pipeli
 It comes in 2 variants: `Membrane.Element.Fake.Sink.Buffers` and
 `Membrane.Element.Fake.Sink.Bytes` which differ in units they use when making demands.
 
+It is part of [Membrane Multimedia Framework](https://membraneframework.org).
+
 ## Installation
 
 Add the following line to your `deps` in `mix.exs`.  Run `mix deps.get`.
 
 ```elixir
-{:membrane_element_fake, git: "git@github.com:membraneframework/membrane-element-fake.git"}
+{:membrane_element_fake, "~> 0.1"}
 ```
 
 ## Sample Usage
