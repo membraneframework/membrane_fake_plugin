@@ -1,5 +1,7 @@
 # Membrane Multimedia Framework: Fake Element
 
+[![Build Status](https://travis-ci.com/membraneframework/membrane-element-fake.svg?branch=master)](https://travis-ci.com/membraneframework/membrane-element-fake)
+
 This package provides fake sink elements that consume & drop incoming data.
 They are particularly useful for testing or when making a filter-oriented pipeline.
 
