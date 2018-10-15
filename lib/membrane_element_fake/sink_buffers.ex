@@ -5,15 +5,15 @@ defmodule Membrane.Element.Fake.Sink.Buffers do
 
   use Membrane.Element.Base.Sink
 
-  def_known_sink_pads sink: {:always, {:pull, demand_in: :buffers}, :any}
+  def_input_pads input: [demand_unit: :buffers, caps: :any]
 
   @impl true
-  def handle_play(state) do
-    {{:ok, demand: :sink}, state}
+  def handle_prepared_to_playing(_ctx, state) do
+    {{:ok, demand: :input}, state}
   end
 
   @impl true
-  def handle_write1(:sink, _, _, state) do
-    {{:ok, demand: :sink}, state}
+  def handle_write_list(:input, _buffers, _ctx, state) do
+    {{:ok, demand: :input}, state}
   end
 end
