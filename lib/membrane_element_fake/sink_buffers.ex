@@ -13,7 +13,7 @@ defmodule Membrane.Element.Fake.Sink.Buffers do
   end
 
   @impl true
-  def handle_write_list(:input, _buffers, _ctx, state) do
-    {{:ok, demand: :input}, state}
+  def handle_write_list(:input, buffers, _ctx, state) do
+    {{:ok, demand: {:input, length(buffers)}}, state}
   end
 end
