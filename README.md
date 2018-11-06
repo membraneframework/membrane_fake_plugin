@@ -33,7 +33,7 @@ defmodule Fake.Pipeline do
       fake_sink: Fake.Sink.Buffers,
     ]
     links = %{
-      {:file_src, :source} => {:fake_sink, :sink}
+      {:file_src, :output} => {:fake_sink, :input}
     }
 
     {{:ok, %Spec{children: children, links: links}}, %{}}

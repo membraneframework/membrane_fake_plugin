@@ -11,13 +11,17 @@ defmodule Membrane.Element.Fake.Sink.BytesTest do
   describe "With demand size set to 42" do
     setup [:state]
 
-    test "handle_play/1 should return an :ok result with demand of size 42", %{state: state} do
-      assert @module.handle_play(state) == {{:ok, demand: {:sink, 42}}, state}
+    test "handle_prepared_to_playing/2 should return an :ok result with demand of size 42", %{
+      state: state
+    } do
+      assert @module.handle_prepared_to_playing(nil, state) ==
+               {{:ok, demand: {:input, 42}}, state}
     end
 
-    test "handle_write/4 should ignore incoming data and return an :ok result with demand of size 42",
+    test "handle_write_list/4 should ignore incoming data and return an :ok result with demand of size 42",
          %{state: state} do
-      assert @module.handle_write1(:sink, nil, nil, state) == {{:ok, demand: {:sink, 42}}, state}
+      assert @module.handle_write_list(:input, nil, nil, state) ==
+               {{:ok, demand: {:input, 42}}, state}
     end
   end
 end
