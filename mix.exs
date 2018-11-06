@@ -52,8 +52,7 @@ defmodule Membrane.Element.Fake.Mixfile do
   defp deps do
     [
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      # {:membrane_core, "~> 0.1"},
-      {:membrane_core, github: "membraneframework/membrane-core", branch: "pre-review"}
+      {:membrane_core, "~> 0.2"},
     ]
   end
 end
