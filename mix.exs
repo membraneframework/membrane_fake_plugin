@@ -1,7 +1,7 @@
 defmodule Membrane.Element.Fake.Mixfile do
   use Mix.Project
 
-  @version "0.1.1"
+  @version "0.2.0"
   @github_url "https://github.com/membraneframework/membrane-element-fake"
 
   def project do
