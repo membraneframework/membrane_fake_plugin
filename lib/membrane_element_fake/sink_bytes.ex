@@ -12,7 +12,7 @@ defmodule Membrane.Element.Fake.Sink.Bytes do
                 default: 2048
               ]
 
-  def_input_pads input: [demand_unit: :bytes, caps: :any]
+  def_input_pad :input, demand_unit: :bytes, caps: :any
 
   @impl true
   def handle_prepared_to_playing(_ctx, state) do

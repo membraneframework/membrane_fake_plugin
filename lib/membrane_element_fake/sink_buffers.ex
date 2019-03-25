@@ -5,7 +5,7 @@ defmodule Membrane.Element.Fake.Sink.Buffers do
 
   use Membrane.Element.Base.Sink
 
-  def_input_pads input: [demand_unit: :buffers, caps: :any]
+  def_input_pad :input, demand_unit: :buffers, caps: :any
 
   @impl true
   def handle_prepared_to_playing(_ctx, state) do
