@@ -3,7 +3,7 @@ defmodule Membrane.Element.Fake.Sink.Buffers do
   Fake sink that ignores coming data. It makes demands in buffers.
   """
 
-  use Membrane.Element.Base.Sink
+  use Membrane.Sink
 
   def_input_pad :input, demand_unit: :buffers, caps: :any
 
