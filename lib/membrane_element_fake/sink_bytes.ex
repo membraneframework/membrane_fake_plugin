@@ -3,7 +3,7 @@ defmodule Membrane.Element.Fake.Sink.Bytes do
   Fake sink that ignores coming data. It makes demands in bytes.
   """
 
-  use Membrane.Element.Base.Sink
+  use Membrane.Sink
 
   def_options demand_size: [
                 type: :integer,
