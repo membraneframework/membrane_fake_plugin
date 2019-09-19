@@ -1,7 +1,7 @@
 defmodule Membrane.Element.Fake.Mixfile do
   use Mix.Project
 
-  @version "0.2.1"
+  @version "0.2.2"
   @github_url "https://github.com/membraneframework/membrane-element-fake"
 
   def project do
@@ -52,7 +52,7 @@ defmodule Membrane.Element.Fake.Mixfile do
   defp deps do
     [
       {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:membrane_core, github: "membraneframework/membrane-core", branch: "master"}
+      {:membrane_core, "~> 0.4.0"}
     ]
   end
 end
