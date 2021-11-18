@@ -15,7 +15,7 @@ It is part of [Membrane Multimedia Framework](https://membraneframework.org).
 Add the following line to your `deps` in `mix.exs`.  Run `mix deps.get`.
 
 ```elixir
-{:membrane_element_fake, "~> 0.3"}
+{:membrane_element_fake, "~> 0.6.0"}
 ```
 
 ## Sample Usage
