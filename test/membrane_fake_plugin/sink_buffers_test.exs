@@ -1,6 +1,6 @@
-defmodule Membrane.Element.Fake.Sink.BuffersTest do
+defmodule Membrane.Fake.Sink.BuffersTest do
   use ExUnit.Case
-  @module Membrane.Element.Fake.Sink.Buffers
+  @module Membrane.Fake.Sink.Buffers
 
   describe "handle_prepared_to_playing/2 should" do
     test "return an :ok result with demand" do
