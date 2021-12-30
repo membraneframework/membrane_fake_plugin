@@ -1,19 +1,19 @@
-defmodule Membrane.Element.Fake.Mixfile do
+defmodule Membrane.Fake.Mixfile do
   use Mix.Project
 
   @version "0.6.0"
-  @github_url "https://github.com/membraneframework/membrane-element-fake"
+  @github_url "https://github.com/membraneframework/membrane_fake_plugin"
 
   def project do
     [
-      app: :membrane_element_fake,
+      app: :membrane_fake_plugin,
       compilers: Mix.compilers(),
       version: @version,
       elixir: "~> 1.7",
       elixirc_paths: elixirc_paths(Mix.env()),
-      description: "Membrane Multimedia Framework (Fake Element)",
+      description: "Fake Membrane sinks that drop incoming data",
       package: package(),
-      name: "Membrane Element: Fake",
+      name: "Membrane Fake Plugin",
       source_url: @github_url,
       docs: docs(),
       deps: deps()
@@ -22,8 +22,7 @@ defmodule Membrane.Element.Fake.Mixfile do
 
   def application do
     [
-      extra_applications: [],
-      mod: {Membrane.Element.Fake, []}
+      extra_applications: []
     ]
   end
 
@@ -33,7 +32,7 @@ defmodule Membrane.Element.Fake.Mixfile do
   defp docs do
     [
       main: "readme",
-      extras: ["README.md"],
+      extras: ["LICENSE", "README.md"],
       source_ref: "v#{@version}"
     ]
   end
@@ -51,8 +50,10 @@ defmodule Membrane.Element.Fake.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.19", only: :dev, runtime: false},
-      {:membrane_core, "~> 0.8.0"}
+      {:membrane_core, "~> 0.8.0"},
+      {:ex_doc, "~> 0.26", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.1", only: :dev, runtime: false},
+      {:credo, "~> 1.6.1", only: :dev, runtime: false}
     ]
   end
 end

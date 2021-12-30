@@ -1,4 +1,4 @@
-defmodule Membrane.Element.Fake.Sink.Bytes do
+defmodule Membrane.Fake.Sink.Bytes do
   @moduledoc """
   Fake sink that ignores coming data. It makes demands in bytes.
   """

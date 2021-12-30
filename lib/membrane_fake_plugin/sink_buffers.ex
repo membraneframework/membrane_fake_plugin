@@ -1,4 +1,4 @@
-defmodule Membrane.Element.Fake.Sink.Buffers do
+defmodule Membrane.Fake.Sink.Buffers do
   @moduledoc """
   Fake sink that ignores coming data. It makes demands in buffers.
   """

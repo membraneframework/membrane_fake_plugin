@@ -1,6 +1,6 @@
-defmodule Membrane.Element.Fake.Sink.BytesTest do
+defmodule Membrane.Fake.Sink.BytesTest do
   use ExUnit.Case
-  @module Membrane.Element.Fake.Sink.Bytes
+  @module Membrane.Fake.Sink.Bytes
 
   test "handle_init/1 should store demand_size in state" do
     assert @module.handle_init(%@module{demand_size: 42}) == {:ok, %{demand_size: 42}}
