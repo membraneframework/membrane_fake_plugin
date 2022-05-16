@@ -6,7 +6,8 @@ defmodule Membrane.Fake.Sink.BytesTest do
     assert @module.handle_init(%@module{demand_size: 42}) == {:ok, %{demand_size: 42}}
   end
 
-  def state(_), do: [state: %{demand_size: 42}]
+  @spec state(any()) :: any()
+  def state(_context), do: [state: %{demand_size: 42}]
 
   describe "With demand size set to 42" do
     setup [:state]
