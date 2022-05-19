@@ -39,6 +39,7 @@ defmodule Membrane.Fake.Mixfile do
     [
       main: "readme",
       extras: ["LICENSE", "README.md"],
+      formatters: ["html"],
       source_ref: "v#{@version}"
     ]
   end
@@ -56,10 +57,11 @@ defmodule Membrane.Fake.Mixfile do
 
   defp deps do
     [
-      {:membrane_core, "~> 0.8.0"},
-      {:ex_doc, "~> 0.26", only: :dev, runtime: false},
+      {:membrane_core, "~> 0.10.0"},
+      {:ex_doc, "~> 0.28.4", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
-      {:credo, "~> 1.6.1", only: :dev, runtime: false}
+      {:credo, "~> 1.6.4", only: :dev, runtime: false},
+      {:membrane_file_plugin, "~> 0.12.0", only: [:dev, :test]}
     ]
   end
 
