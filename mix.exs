@@ -9,14 +9,20 @@ defmodule Membrane.Fake.Mixfile do
       app: :membrane_fake_plugin,
       compilers: Mix.compilers(),
       version: @version,
-      elixir: "~> 1.7",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
+      deps: deps(),
+      dialyzer: dialyzer(),
+
+      # hex
       description: "Fake Membrane sinks that drop incoming data",
       package: package(),
+
+      # docs
       name: "Membrane Fake Plugin",
       source_url: @github_url,
-      docs: docs(),
-      deps: deps()
+      homepage_url: "https://membraneframework.org",
+      docs: docs()
     ]
   end
 
@@ -33,6 +39,7 @@ defmodule Membrane.Fake.Mixfile do
     [
       main: "readme",
       extras: ["LICENSE", "README.md"],
+      formatters: ["html"],
       source_ref: "v#{@version}"
     ]
   end
@@ -50,10 +57,24 @@ defmodule Membrane.Fake.Mixfile do
 
   defp deps do
     [
-      {:membrane_core, "~> 0.8.0"},
-      {:ex_doc, "~> 0.26", only: :dev, runtime: false},
+      {:membrane_core, "~> 0.10.0"},
+      {:ex_doc, "~> 0.28.4", only: :dev, runtime: false},
       {:dialyxir, "~> 1.1", only: :dev, runtime: false},
-      {:credo, "~> 1.6.1", only: :dev, runtime: false}
+      {:credo, "~> 1.6.4", only: :dev, runtime: false},
+      {:membrane_file_plugin, "~> 0.12.0", only: [:dev, :test]}
     ]
+  end
+
+  defp dialyzer() do
+    opts = [
+      flags: [:error_handling]
+    ]
+
+    if System.get_env("CI") == "true" do
+      # Store PLTs in cacheable directory for CI
+      [plt_local_path: "priv/plts", plt_core_path: "priv/plts"] ++ opts
+    else
+      opts
+    end
   end
 end
