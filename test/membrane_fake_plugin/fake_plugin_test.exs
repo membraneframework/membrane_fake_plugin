@@ -10,13 +10,12 @@ defmodule Membrane.Fake.PipelineTest do
   @fixture_path "../fixtures/sample.mpg" |> Path.expand(__DIR__)
 
   test "Fake Sink consumes sample input" do
-    children = [
-      file_src: %File.Source{location: @fixture_path},
-      fake_sink: Fake.Sink.Buffers
+    links = [
+      child(:file_src, %File.Source{location: @fixture_path})
+      |> child(:fake_sink, Fake.Sink.Buffers)
     ]
 
-    assert {:ok, pid} =
-             Testing.Pipeline.start_link(links: Membrane.ParentSpec.link_linear(children))
+    assert {:ok, _super_vised, pid} = Testing.Pipeline.start_link(structure: links)
 
     assert_end_of_stream(pid, :fake_sink)
   end
