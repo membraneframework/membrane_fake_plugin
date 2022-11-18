@@ -28,15 +28,10 @@ defmodule Fake.Pipeline do
   alias Membrane.{File, Fake}
 
   @impl true
-  def handle_init(_) do
-    children = [
-      file_src: %File.Source{location: "/tmp/some_samples.raw"},
-      fake_sink: Fake.Sink.Buffers,
-    ]
-    
-    links = [link(:file_src) |> to(:fake_sink)]
+  def handle_init(_) do    
+    links = [child(:file_src,%File.Source{location: "/tmp/some_samples.raw"}) |> child(:fake_sink, Fake.Sink.Buffers)]
 
-    {{:ok, %ParentSpec{children: children, links: links}}, %{}}
+    {[spec: links], %{}}
   end
 end
 ```
