@@ -12,15 +12,15 @@ defmodule Membrane.Fake.Sink.Bytes do
                 default: 2048
               ]
 
-  def_input_pad :input, demand_unit: :bytes, caps: :any
+  def_input_pad :input, demand_unit: :bytes, accepted_format: _any
 
   @impl true
-  def handle_prepared_to_playing(_ctx, state) do
-    {{:ok, demand: {:input, state.demand_size}}, state}
+  def handle_playing(_ctx, state) do
+    {[demand: {:input, state.demand_size}], state}
   end
 
   @impl true
   def handle_write_list(:input, _buffers, _ctx, state) do
-    {{:ok, demand: {:input, state.demand_size}}, state}
+    {[demand: {:input, state.demand_size}], state}
   end
 end

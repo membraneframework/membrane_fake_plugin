@@ -5,7 +5,7 @@ defmodule Membrane.Fake.Sink.BuffersTest do
   describe "handle_prepared_to_playing/2 should" do
     test "return an :ok result with demand" do
       state = nil
-      assert @module.handle_prepared_to_playing(nil, state) == {{:ok, demand: :input}, state}
+      assert @module.handle_playing(nil, state) == {[demand: :input], state}
     end
   end
 
@@ -14,7 +14,7 @@ defmodule Membrane.Fake.Sink.BuffersTest do
       state = nil
 
       assert @module.handle_write_list(:input, 1..10 |> Enum.to_list(), nil, state) ==
-               {{:ok, demand: {:input, 10}}, state}
+               {[demand: {:input, 10}], state}
     end
   end
 end
