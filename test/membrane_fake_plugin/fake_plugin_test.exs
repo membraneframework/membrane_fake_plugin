@@ -15,7 +15,7 @@ defmodule Membrane.Fake.PipelineTest do
       |> child(:fake_sink, Fake.Sink.Buffers)
     ]
 
-    assert {:ok, _super_vised, pid} = Testing.Pipeline.start_link(structure: links)
+    assert {:ok, _super_vised, pid} = Testing.Pipeline.start_link(spec: links)
 
     assert_end_of_stream(pid, :fake_sink)
   end
