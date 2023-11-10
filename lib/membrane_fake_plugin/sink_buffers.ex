@@ -5,7 +5,7 @@ defmodule Membrane.Fake.Sink.Buffers do
 
   use Membrane.Sink
 
-  def_input_pad :input, demand_unit: :buffers, accepted_format: _any
+  def_input_pad :input, flow_control: :manual, demand_unit: :buffers, accepted_format: _any
 
   @impl true
   def handle_playing(_ctx, state) do
@@ -13,7 +13,7 @@ defmodule Membrane.Fake.Sink.Buffers do
   end
 
   @impl true
-  def handle_write_list(:input, buffers, _ctx, state) do
-    {[demand: {:input, length(buffers)}], state}
+  def handle_buffer(:input, _buffer, _ctx, state) do
+    {[demand: {:input, 1}], state}
   end
 end

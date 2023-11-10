@@ -19,9 +19,9 @@ defmodule Membrane.Fake.Sink.BytesTest do
                {[demand: {:input, 42}], state}
     end
 
-    test "handle_write_list/4 should ignore incoming data and return an :ok result with demand of size 42",
+    test "handle_buffer/4 should ignore incoming data and return an :ok result with demand of size 42",
          %{state: state} do
-      assert @module.handle_write_list(:input, nil, nil, state) ==
+      assert @module.handle_buffer(:input, nil, nil, state) ==
                {[demand: {:input, 42}], state}
     end
   end

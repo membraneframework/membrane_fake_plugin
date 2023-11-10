@@ -9,12 +9,12 @@ defmodule Membrane.Fake.Sink.BuffersTest do
     end
   end
 
-  describe "handle_write_list/4 should" do
+  describe "handle_buffer/4 should" do
     test "ignore incoming data and return an :ok result with demand" do
       state = nil
 
-      assert @module.handle_write_list(:input, 1..10 |> Enum.to_list(), nil, state) ==
-               {[demand: {:input, 10}], state}
+      assert @module.handle_buffer(:input, 1, nil, state) ==
+               {[demand: {:input, 1}], state}
     end
   end
 end
