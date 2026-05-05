@@ -4,8 +4,8 @@ defmodule Membrane.Fake.PipelineTest do
 
   import Membrane.Testing.Assertions
 
-  alias Membrane.Testing
   alias Membrane.{Fake, File}
+  alias Membrane.Testing
 
   @fixture_path "../fixtures/sample.mpg" |> Path.expand(__DIR__)
 
